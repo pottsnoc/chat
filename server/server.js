@@ -1,15 +1,9 @@
 const http = require('http'),
-      fs = require('fs');
+      fs = require('fs'),
+      router = require('./router');
 
 const server = http.createServer();
-const port = process.env.PORT || '3000';
 
-server.listen(port, (...args) => {
-    console.log(`server is running on http://localhost:${port}`)
-});
+server.on('request', router)
 
-server.on('request', (req, res) => {
-    fs.readFile('package.json', (err, file) => {
-        res.end(file)
-    })
-})
+module.exports = server;
