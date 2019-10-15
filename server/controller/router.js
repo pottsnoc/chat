@@ -1,4 +1,4 @@
-const routes = require('./routes')
+const routes = require('../routes')
 
 module.exports = (req, res) => {
     console.log(req.url);

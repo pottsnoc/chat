@@ -1,9 +1,9 @@
 const http = require('http'),
-      fs = require('fs'),
-      router = require('./router');
-
-const server = http.createServer();
-
-server.on('request', router)
+      router = require('./controller/router');
+      
+const server = http.createServer(router);
+const io = require('socket.io')(server);
+const socketHandler = require('./controller/socketHandler')(io);
+io.on('connection', socketHandler);
 
 module.exports = server;
