@@ -1,14 +1,21 @@
-const routes = require('../routes')
+const routes = require('../routes'),
+      Client = require('./client'),
+      SessionStore = require('../session/sessionStore');
 
-module.exports = (req, res) => {
-    console.log(req.url);
+const sessionStore = new SessionStore();
+
+module.exports = async (req, res) => {
     let route = routes.get(req.url) || routes.get(getUnknownRoute(req.url));
-
+    const client = new Client(req, res);
+    await sessionStore.get(client);
+    res.on('finish', () => {
+        sessionStore.save(client);
+    });
     if(route) {
-        route(req, res);
+        route(client);
     } else {
-        res.statusCode = 404;
-        res.end('Not Found');
+        client.setStatus(404, 'Not Found');
+        client.send();
     }
 }
 
