@@ -8,7 +8,7 @@ module.exports = class Session {
         if(typeof key == 'undefined') {
             return this.data;
         }
-        return data[key] || null;
+        return this.data[key] || null;
     }
     set(key, value) {
         this.data[key] = value;
