@@ -1,0 +1,16 @@
+extends template
+block styles
+    link(rel="stylesheet", href="./static/style.css")
+block title
+    title Чат
+block content
+    div Вы вошли как #{login} 
+    h1 Пользователи на странице
+    #root
+    ul#chat.chatBox
+    form.inputForm
+        textarea#textMessage(name="", cols="30", rows="10")
+        button Send
+block scripts
+    script(src="/socket.io/socket.io.js")
+    script(src="./static/index.js")

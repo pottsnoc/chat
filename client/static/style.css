@@ -1,0 +1,46 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+}
+
+.chatBox {
+    min-height: 200px;
+    background-color: yellow;
+    border: 4px dashed red;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 10px green;
+    margin: 50px;
+}
+.inputForm {
+    display: flex;
+    flex-direction: column;
+}
+.inputForm textarea {
+    background: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(248, 244, 7, 0.7));
+}
+.wrapper-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .4);
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    border: 2px solid yellow;
+    padding: 10px;
+}
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
